@@ -1062,6 +1062,8 @@ REPC SEXP RcreateArray(SEXP ar, SEXP cl) {
       if (!a) error("unable to create a byte array");
       return new_jarrayRef(env, a, "[B");
     }
+  default:
+    break;
   }
   error("Unsupported type to create Java array from.");
   return R_NilValue;

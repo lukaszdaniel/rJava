@@ -4,6 +4,9 @@
 #include <R.h>
 #include <Rinternals.h>
 #include <Rversion.h>
+#ifdef CXXR_PROJECT
+#include <R_ext/RStartup.h> // for otype_t
+#endif
 
 /* functions provided as R callbacks */
 
@@ -22,7 +25,10 @@
 int  Re_ReadConsole(RCCONST char *prompt, RCSIGN char *buf, int len, int addtohistory);
 void Re_Busy(int which);
 void Re_WriteConsole(RCCONST char *buf, int len);
-void Re_WriteConsoleEx(RCCONST char *buf, int len, int oType);
+#ifndef CXXR_PROJECT
+typedef int otype_t;
+#endif
+void Re_WriteConsoleEx(RCCONST char *buf, int len, otype_t oType);
 void Re_ResetConsole(void);
 void Re_FlushConsole(void);
 void Re_ClearerrConsole(void);

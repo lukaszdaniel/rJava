@@ -138,7 +138,7 @@ void Re_Busy(int which)
     jri_checkExceptions(lenv, 1);
 }
 
-void Re_WriteConsoleEx(RCCONST char *buf, int len, int oType)
+void Re_WriteConsoleEx(RCCONST char *buf, int len, otype_t oType)
 {
 	JNIEnv *lenv = checkEnvironment();
 	jri_checkExceptions(lenv, 1);
@@ -166,7 +166,7 @@ void Re_WriteConsoleEx(RCCONST char *buf, int len, int oType)
 /* old-style WriteConsole (for old R versions only) */
 void Re_WriteConsole(RCCONST char *buf, int len)
 {
-    Re_WriteConsoleEx(buf, len, 0);
+    Re_WriteConsoleEx(buf, len, (otype_t) 0);
 }
 
 /* Indicate that input is coming from the console */

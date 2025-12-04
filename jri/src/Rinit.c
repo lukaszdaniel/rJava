@@ -12,7 +12,7 @@
 
 #define R_INTERFACE_PTRS 1
 #define CSTACK_DEFNS 1
-#include <Rinterface.h>
+#include <Rinterface.h> // for R_CStackLimit, R_CStackStart
 /* and SaveAction is not officially exported */
 extern SA_TYPE SaveAction;
 
